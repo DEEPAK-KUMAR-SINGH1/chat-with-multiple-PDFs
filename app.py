@@ -5,7 +5,8 @@ from PyPDF2 import PdfReader
 from langchain_text_splitters import CharacterTextSplitter
 #from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.memory import ConversationBufferMemory
+from langchain_community.memory import ConversationBufferMemory
+#from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 
@@ -111,5 +112,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
