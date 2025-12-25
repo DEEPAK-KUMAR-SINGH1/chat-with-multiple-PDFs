@@ -1,5 +1,6 @@
+import os
 import streamlit as st
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -9,6 +10,10 @@ from htmlTemplates import css, bot_template, user_template
 
 # Mistral imports
 from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
+
+
+# ✅ Inject Streamlit Secret as Environment Variable
+os.environ["MISTRAL_API_KEY"] = st.secrets["MISTRAL_API_KEY"]
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -66,7 +71,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    load_dotenv()
+    #load_dotenv()
     st.set_page_config(page_title="Chat with MY PDF",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
@@ -105,3 +110,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
